@@ -1,6 +1,7 @@
 $(function(){
     const menuToggle = $('.menu_toggle_row'),
     closeToggle = $('.ico_close'),
+    mainSearch = $('.main_search'),
     searchToggle = $('.ico_search'),
     searchArea = $('.search_area'),
     btnCancel = $('.btn_cancel'),
