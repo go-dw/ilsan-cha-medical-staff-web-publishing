@@ -70,4 +70,42 @@ $(function(){
         e.preventDefault();
         $(this).toggleClass('select');
     });
+
+    // const login_cta = $('.login_cta');
+    // const arr_popup = $('.arr_popup');
+    // const arr_text = $('.arr_popup .arr_text');
+    // const arr_close = $('.arr_popup .btn_close');
+    // const arr_yes = $('.arr_popup .arr_yes');
+    // arr_popup.hide();
+
+    // login_cta.on('click', function(e){
+    //     e.preventDefault();
+    //     arr_text.text('로그인에 실패하셨습니다. 와이파이 연결을 확인해주세요.')
+    //     setTimeout(function(){
+    //         arr_popup.show().addClass('on');
+    //         $('.dim').show();
+    //     }, 100);
+    // });
+    // arr_close.on('click', function(e){
+    //     e.preventDefault();
+    //     setTimeout(function(){
+    //         arr_popup.hide().removeClass('on');
+    //         $('.dim').hide();
+    //     }, 100);
+    // });
+    // arr_yes.on('click', function(e){
+    //     e.preventDefault();
+    //     setTimeout(function(){
+    //         arr_popup.hide().removeClass('on');
+    //         $('.dim').hide();
+    //     }, 100);
+    // });
+    // $('.dim').on('click', function(e){
+    //     if(arr_popup.hasClass('on')) {
+    //         setTimeout(function(){
+    //             arr_popup.hide().removeClass('on');
+    //             $('.dim').hide();
+    //         }, 100);
+    //     };
+    // });
 })

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>일산차 의료진용 APP</title>
+<link rel="shortcut icon" href="images/favicon_cha.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<!--[if lt IE 9]>
+    <script src="/js/html5shiv.js"></script>
+    <script src="/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script>
+    $(function(){
+        var clearStart;
+        var clearEnd;
+
+        //시작일
+        $('#datepicker_start').datepicker({
+            dateFormat: 'yy-mm-dd' //Input Display Format 변경
+            ,altFormat: "DD, d MM, yy"// alt 데이터 포멧
+            ,showOtherMonths: false //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+            ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
+            // ,changeYear: true //콤보박스에서 년 선택 가능
+            // ,changeMonth: true //콤보박스에서 월 선택 가능                
+            ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시
+            ,showButtonPanel: true	// 오늘로 가는 버튼과 달력 닫기 버튼 보기 옵션
+            ,showAnim : "slideDown"// option 종류 : "show" , "slideDown", "fadeIn", "blind", "bounce", "clip", "drop", "fold", "slide"
+            // 년 월이 셀렉트 박스로 표현 되어서 선택할 수 있다.
+            ,prevText: '이전 달'	// 마우스 오버시 이전달 텍스트
+            ,nextText: '다음 달'	// 마우스 오버시 다음달 텍스트
+            ,closeText: '닫기' // 닫기 버튼 텍스트 변경
+            ,currentText: '오늘' // 오늘 텍스트 변경
+            ,buttonImage: "images/calendar.gif" //버튼 이미지 경로
+            ,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
+            ,buttonText: "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트                
+            ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
+            ,monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']	//한글 캘린더중 월 표시를 위한 부분
+            ,monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']	//한글 캘린더 중 월 표시를 위한 부분
+            ,dayNames: ['일', '월', '화', '수', '목', '금', '토']	//한글 캘린더 요일 표시 부분
+            ,dayNamesShort: ['일', '월', '화', '수', '목', '금', '토']	//한글 요일 표시 부분
+            ,dayNamesMin: ['일', '월', '화', '수', '목', '금', '토']	// 한글 요일 표시 부분
+            ,minDate: "-2Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+            ,maxDate: "0D" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+            ,onClose: function(selectedDate) {
+                // 시작일(fromDate) datepicker가 닫힐때
+                // 종료일(toDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+                clearStart = setTimeout(function() {
+                    $("#datepicker_end").datepicker( "option", "minDate", selectedDate );
+                    $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
+                    // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치
+                }, 300);
+                if($('#datepicker_end').click()){
+                    $("#datepicker_end").datepicker( "option", "minDate", selectedDate );
+                    $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
+                    // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치
+                    clearTimeout(clearStart);
+                }
+            }
+        });
+        
+        //종료일
+        $('#datepicker_end').datepicker({
+            dateFormat: 'yy-mm-dd' //Input Display Format 변경
+            ,altFormat: "DD, d MM, yy"// alt 데이터 포멧
+            ,showOtherMonths: false //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+            ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
+            // ,changeYear: true //콤보박스에서 년 선택 가능
+            // ,changeMonth: true //콤보박스에서 월 선택 가능                
+            ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시
+            ,showButtonPanel: true	// 오늘로 가는 버튼과 달력 닫기 버튼 보기 옵션
+            ,showAnim : "slideDown"// option 종류 : "show" , "slideDown", "fadeIn", "blind", "bounce", "clip", "drop", "fold", "slide"
+            // 년 월이 셀렉트 박스로 표현 되어서 선택할 수 있다.
+            ,prevText: '이전 달'	// 마우스 오버시 이전달 텍스트
+            ,nextText: '다음 달'	// 마우스 오버시 다음달 텍스트
+            ,closeText: '닫기' // 닫기 버튼 텍스트 변경
+            ,currentText: '오늘' // 오늘 텍스트 변경
+            ,buttonImage: "images/calendar.gif" //버튼 이미지 경로
+            ,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
+            ,buttonText: "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트                
+            ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
+            ,monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']	//한글 캘린더중 월 표시를 위한 부분
+            ,monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']	//한글 캘린더 중 월 표시를 위한 부분
+            ,dayNames: ['일', '월', '화', '수', '목', '금', '토']	//한글 캘린더 요일 표시 부분
+            ,dayNamesShort: ['일', '월', '화', '수', '목', '금', '토']	//한글 요일 표시 부분
+            ,dayNamesMin: ['일', '월', '화', '수', '목', '금', '토']	// 한글 요일 표시 부분
+            ,minDate: "-2Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+            ,maxDate: "0D" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+            ,onClose: function(selectedDate) {
+                // 종료일(toDate) datepicker가 닫힐때
+                // 시작일(fromDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정
+                clearEnd = setTimeout(function() {
+                    $("#datepicker_start").datepicker( "option", "maxDate", selectedDate );
+                    $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
+                     // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치
+                }, 300);
+                if($('#datepicker_start').click()){
+                    $("#datepicker_start").datepicker( "option", "maxDate", selectedDate );
+                    $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
+                    // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치
+                    clearTimeout(clearEnd);
+                }
+            }
+        });
+
+        //초기값 설정
+        $('#datepicker_start').datepicker('setDate', '-3m');
+        $('#datepicker_end').datepicker('setDate', 'today');
+        //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+        $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
+        // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치
+
+        $('.period_today').click(function(){
+            $('#datepicker_start').datepicker('setDate', 'today');
+            $('#datepicker_end').datepicker('setDate', 'today');
+        });
+        $('.period_week').click(function(){
+            $('#datepicker_start').datepicker('setDate', '-1w');
+            $('#datepicker_end').datepicker('setDate', 'today');
+        });
+        $('.period_one_m').click(function(){
+            $('#datepicker_start').datepicker('setDate', '-1m');
+            $('#datepicker_end').datepicker('setDate', 'today');
+        });
+        $('.period_three_m').click(function(){
+            $('#datepicker_start').datepicker('setDate', '-3m');
+            $('#datepicker_end').datepicker('setDate', 'today');
+        });
+    });
+</script>
+</head>
+<body>
+<div id="container" class="container-fuid">
+	<section class="content">
+		<main>
+			<div class="cont">
+				<div class="dim"></div>
+				<div class="cont_tit">
+					<div class="header_wrap">
+                        <div class="btn_back_wrap">
+                            <div class="btn_back" onclick="history.back();">
+                                <div class="ico_back"></div>
+                            </div>
+						</div>
+						<div class="header" onclick="location.href='dashboard.html'">
+
+						</div>
+						<div class="menu_toggle">
+                            <div class="menu_toggle_row select">
+                                <div class="ico_toggle">외래</div>
+                            </div>
+                            <div class="menu_toggle_row">
+                                <div class="ico_toggle">입원</div>
+                            </div>
+                            <div class="menu_toggle_row">
+                                <div class="ico_toggle">응급</div>
+                            </div>
+                            <div class="menu_toggle_row">
+                                <div class="ico_toggle">수술</div>
+                            </div>
+                            <div class="menu_toggle_row">
+                                <div class="ico_toggle">시술</div>
+                            </div>
+                            <div class="menu_toggle_row menu_search">
+                                <div class="ico_toggle ico_search"></div>
+                            </div>
+                            <div class="menu_toggle_row menu_toggle_close">
+                                <div class="ico_toggle ico_close"></div>
+                            </div>
+						</div>
+					</div>
+				</div>
+				<div class="cont_table">
+					<div class="row no-gutters">
+						<div class="table-responsive-sm col-md-12 table_wrap">
+							<div class="thead_wrap">
+								<table class="table table_03">
+									<thead>
+										<tr class="row">
+											<th class="col title title_01">
+                                                <span class="name_list">환자 목록(외래)</span>
+                                            </th>
+										</tr>
+									</thead>
+								</table>
+                            </div>
+                            <div class="thead_wrap">
+								<div class="dep_wrap">
+                                    <label for="sel_dep" class="dep_label">진료과를 선택해주세요.</label>
+                                    <select name="department" id="sel_dep" class="dep_sel">
+                                        <option value="" selected="selected">진료과선택</option>
+                                        <option value="순환기내과">순환기내과</option>
+                                        <option value="진단검사의학과">진단검사의학과</option>
+                                        <option value="병리과">병리과</option>
+                                        <option value="비뇨의학과">비뇨의학과</option>
+                                        <option value="외과">외과</option>
+                                        <option value="재활의학과">재활의학과</option>
+                                        <option value="산부인과">산부인과</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="search_wrap">
+                                <div class="search_start">
+                                    <div class="search_txt">
+                                        <div class="search_txt_start">
+                                            시작일
+                                        </div>
+                                    </div>
+                                    <div class="search_num">
+                                        <input type="text" id="datepicker_start" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="search_end">
+                                    <div class="search_txt">
+                                        <div class="search_txt_end">
+                                            종료일
+                                        </div>
+                                    </div>
+                                    <div class="search_num">
+                                        <input type="text" id="datepicker_end" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="search_button">
+                                    <div class="ico_search">
+                                        <img src="images/search_icon.png" alt="search_icon">
+                                    </div>
+                                </div>
+                            </div>
+							<table class="table table_02 table_02_s table_list">
+								<thead>
+									<tr class="row">
+										<th class="col-4 col-sm-2 column column1">
+											<span class="th_date">일자</span>
+										</th>
+										<th class="col-4 col-sm-2 column column2">
+											<span class="th_time">시간</span>
+										</th>
+										<th class="col-4 col-sm-2 column column3">
+											<span class="th_name">이름</span>
+										</th>
+                                        <th class="w-100"></th>
+                                        <th class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+                                                <div class="col-4 column column4">
+                                                    <span class="th_num">환자번호</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">초·재진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">예약</span>
+                                                </div>
+                                            </div>
+                                        </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="row" onclick="location.href='pat_info.html'">
+										<td class="col-4 col-sm-2 column column1">
+											<span class="td_date">04.28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column2">
+											<span class="td_time">11:28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column3">
+											<span class="td_name">홍길동</span>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-4 column column4">
+                                                    <span class="th_num">24455328</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">초진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">당일</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="row" onclick="location.href='pat_info.html'">
+										<td class="col-4 col-sm-2 column column1">
+											<span class="td_date">04.28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column2">
+											<span class="td_time">12:28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column3">
+											<span class="td_name">마희라</span>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-4 column column4">
+                                                    <span class="th_num">02345678</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">초진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">예약</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="row" onclick="location.href='pat_info.html'">
+										<td class="col-4 col-sm-2 column column1">
+											<span class="td_date">04.28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column2">
+											<span class="td_time">13:28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column3">
+											<span class="td_name">제갈수란</span>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-4 column column4">
+                                                    <span class="th_num">21355678</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">재진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">예약</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="row" onclick="location.href='pat_info.html'">
+										<td class="col-4 col-sm-2 column column1">
+											<span class="td_date">04.28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column2">
+											<span class="td_time">14:28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column3">
+											<span class="td_name">김마리마리</span>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-4 column column4">
+                                                    <span class="th_num">02533678</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">재진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">당일</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="row" onclick="location.href='pat_info.html'">
+										<td class="col-4 col-sm-2 column column1">
+											<span class="td_date">04.28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column2">
+											<span class="td_time">15:28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column3">
+											<span class="td_name">홍연화</span>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-4 column column4">
+                                                    <span class="th_num">35628778</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">초진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">예약</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="row" onclick="location.href='pat_info.html'">
+										<td class="col-4 col-sm-2 column column1">
+											<span class="td_date">04.28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column2">
+											<span class="td_time">16:28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column3">
+											<span class="td_name">하령</span>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-4 column column4">
+                                                    <span class="th_num">83355678</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">초진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">예약</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="row" onclick="location.href='pat_info.html'">
+										<td class="col-4 col-sm-2 column column1">
+											<span class="td_date">04.28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column2">
+											<span class="td_time">17:28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column3">
+											<span class="td_name">함사랑</span>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-4 column column4">
+                                                    <span class="th_num">87565328</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">초진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">예약</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="row" onclick="location.href='pat_info.html'">
+										<td class="col-4 col-sm-2 column column1">
+											<span class="td_date">04.28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column2">
+											<span class="td_time">18:28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column3">
+											<span class="td_name">김연수</span>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-4 column column4">
+                                                    <span class="th_num">77753678</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">초진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">예약</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="row" onclick="location.href='pat_info.html'">
+										<td class="col-4 col-sm-2 column column1">
+											<span class="td_date">04.28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column2">
+											<span class="td_time">19:28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column3">
+											<span class="td_name">단연호</span>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-4 column column4">
+                                                    <span class="th_num">36983978</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">초진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">예약</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="row" onclick="location.href='pat_info.html'">
+										<td class="col-4 col-sm-2 column column1">
+											<span class="td_date">04.28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column2">
+											<span class="td_time">10:28</span>
+										</td>
+										<td class="col-4 col-sm-2 column column3">
+											<span class="td_name">강태공</span>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-4 column column4">
+                                                    <span class="th_num">35753951</span>
+												</div>
+                                                <div class="col-4 column column5">
+                                                    <span class="th_dia">초진</span>
+                                                </div>
+                                                <div class="col-4 column column6">
+                                                    <span class="th_res">예약</span>
+                                                </div>
+                                            </div>
+                                        </td>
+									</tr>
+								</tbody>
+                            </table>
+						</div>
+					</div>
+				</div>
+            </div>
+            <div class="search_area">
+                <div class="search_form">
+                    <div class="popup_title">
+                        <div class="tit_popup_wrap">
+                            <div class="tit_popup">
+                                <div class="tit_txt">
+                                    정보 검색
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive-sm col-md-12 table_wrap">
+                        <div class="thead_wrap">
+                            <div class="dep_wrap sort_wrap">
+                                <select name="department" id="sel_dep" class="dep_sel">
+                                    <option value="" selected="selected">환자명</option>
+                                    <option value="환자번호">환자번호</option>
+                                </select>
+                            </div>
+                            <div class="search_input">
+                                <input type="search" id="search" class="search" placeholder="Search..." />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thead_wrap thead_wrap_btn">
+                        <div class="btn_popup_wrap btn_left btn_cancel">
+                            <div class="btn_popup">
+                                <div class="btn_txt cancel_txt">
+                                    취소
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn_popup_wrap btn_right btn_search">
+                            <div class="btn_popup">
+                                <div class="btn_txt search_txt">
+                                    검색
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</main>
+	</section>
+</div>
+</body>
+</html>
