@@ -1958,14 +1958,6 @@ table.table_pat tbody{
 	line-height: 1.3em;
 	color: #13426b;
 }
-@media (max-width: 350px) {
-	.sub_menu_wrap .sub_row{
-		height: 17.5vh;
-	}
-	.sub_menu_wrap .sub_row .txt_main_l{
-		padding-top: 0;
-	}
-}
 .table_history {
 	border: none;
 }
@@ -1995,6 +1987,18 @@ table.table_pat tbody{
 .table_history tbody tr:last-child {
     border-bottom: 1px solid #79a3dc;
 }
+.login_popup .arr_text{
+	margin: 3em auto 1em;;
+}
+.login_popup .arr_yes{
+	background-color: #00416b;
+}
+.arr_popup .arr_yes:hover,
+.arr_popup .arr_yes:active {
+	background:#ffffff;
+	color: #00416b;
+	border: 2px solid #00416b;
+}
 
 
 
@@ -2008,3 +2012,53 @@ table.table_pat tbody{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 575px) {
+	.login_popup .arr_text{
+		font-size: 1.5em;
+	}
+	.login_popup .arr_yes{
+		height: 1.9em;
+	}
+}
+@media (max-width: 350px) {
+	.txt_sub_l{
+		font-size: 1.1em;
+	}
+	.sub_menu_wrap .sub_row{
+		height: 17.5vh;
+	}
+	.sub_menu_wrap .sub_row .txt_main_l{
+		padding-top: 0;
+	}
+	.login_popup .arr_text{
+	    font-size: 1.3em;
+	}
+}
