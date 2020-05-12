@@ -2002,9 +2002,14 @@ table.table_pat tbody{
 	color: #00416b;
 	border: 2px solid #00416b;
 }
-
-
-
+.table_03 thead .row.stats_row {
+    padding-top: 0;
+}
+.table_03 thead .row .title span.stats_yester {
+    padding-left: calc(1em + 5px);
+	font-weight: normal;
+	border: 0;
+}
 
 
 
