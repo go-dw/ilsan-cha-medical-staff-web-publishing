@@ -1766,6 +1766,9 @@ div.col_none{
 .table thead{
 	background-color: #ffffff;
 }
+.table_list{
+	border: none;
+}
 .table_list thead{
 	background-color: #79a3dc;
 }
@@ -2046,6 +2049,12 @@ table.table_pat tbody{
 	}
 	.login_popup .arr_yes{
 		height: 1.9em;
+	}
+	.table_list tbody td{
+		border-bottom: none;
+	}
+	.table_list tbody td{
+		border-bottom: none;
 	}
 }
 @media (max-width: 350px) {
