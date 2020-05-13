@@ -2033,12 +2033,39 @@ table.table_pat tbody{
 .table_stats{
 	font-size: 1.15em;
 }
-
-
-
-
-
-
+.table_set{
+	margin-top: 1.2em;
+}
+.table tbody .row_version{
+	height: 3.3em;
+}
+.table tbody .row_version td{
+	height: 100%;
+}
+.btn_logout{
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	bottom: 3.3em;
+}
+.btn_logout .logout_cta{
+	width: 75%;
+    height: 2.3em;
+    margin: 1em auto;
+    border: 0;
+    border-radius: 3em;
+    outline: none;
+    background: #00416b;
+    font-size: 1.9em;
+    font-weight: 700;
+    color: #ffffff;
+}
+.btn_logout .logout_cta:hover,
+.btn_logout .logout_cta:active {
+	background:#ffffff;
+	color:#00416b;
+	border: 2px solid #00416b;
+}
 
 
 
@@ -2083,6 +2110,11 @@ table.table_pat tbody{
 	}
 	.table_list tbody td{
 		border-bottom: none;
+	}
+	.btn_logout .logout_cta{
+		height: 1.9em;
+		margin: .5em auto;
+		font-size: 1.7em;
 	}
 }
 @media (max-width: 350px) {
