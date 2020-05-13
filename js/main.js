@@ -1,7 +1,6 @@
 $(function(){
-    var clearStart;
     var clearEnd;
-
+    var clearStart;
     //시작일
     $('#datepicker_start').datepicker({
         dateFormat: 'yy-mm-dd' //Input Display Format 변경
@@ -14,10 +13,12 @@ $(function(){
         ,showButtonPanel: true	// 오늘로 가는 버튼과 달력 닫기 버튼 보기 옵션
         ,showAnim : "slideDown"// option 종류 : "show" , "slideDown", "fadeIn", "blind", "bounce", "clip", "drop", "fold", "slide"
         // 년 월이 셀렉트 박스로 표현 되어서 선택할 수 있다.
+        ,showOptions: { direction: "up" } //달력 보여줄때 이벤트 옵션
         ,prevText: '이전 달'	// 마우스 오버시 이전달 텍스트
         ,nextText: '다음 달'	// 마우스 오버시 다음달 텍스트
         ,closeText: '닫기' // 닫기 버튼 텍스트 변경
         ,currentText: '오늘' // 오늘 텍스트 변경
+        ,duration: "fast" //달력 나타나는 속도, "slow", "normal", "fast"
         ,buttonImage: "images/calendar.gif" //버튼 이미지 경로
         ,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
         ,buttonText: "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트                
@@ -30,19 +31,16 @@ $(function(){
         ,minDate: "-2Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
         ,maxDate: "0D" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
         ,onClose: function(selectedDate) {
+
+        },onSelect: function (date) {
             // 시작일(fromDate) datepicker가 닫힐때
             // 종료일(toDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+            var minDate = $(this).datepicker('getDate');
             clearStart = setTimeout(function() {
-                $("#datepicker_end").datepicker( "option", "minDate", selectedDate );
+                $("#datepicker_end").datepicker( "option", "minDate", minDate );
                 $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
-                // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치
+                // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치 
             }, 300);
-            if($('#datepicker_end').click()){
-                $("#datepicker_end").datepicker( "option", "minDate", selectedDate );
-                $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
-                // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치
-                clearTimeout(clearStart);
-            }
         }
     });
     
@@ -58,10 +56,12 @@ $(function(){
         ,showButtonPanel: true	// 오늘로 가는 버튼과 달력 닫기 버튼 보기 옵션
         ,showAnim : "slideDown"// option 종류 : "show" , "slideDown", "fadeIn", "blind", "bounce", "clip", "drop", "fold", "slide"
         // 년 월이 셀렉트 박스로 표현 되어서 선택할 수 있다.
+        ,showOptions: { direction: "up" } //달력 보여줄때 이벤트 옵션
         ,prevText: '이전 달'	// 마우스 오버시 이전달 텍스트
         ,nextText: '다음 달'	// 마우스 오버시 다음달 텍스트
         ,closeText: '닫기' // 닫기 버튼 텍스트 변경
         ,currentText: '오늘' // 오늘 텍스트 변경
+        ,duration: "fast" //달력 나타나는 속도, "slow", "normal", "fast"
         ,buttonImage: "images/calendar.gif" //버튼 이미지 경로
         ,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
         ,buttonText: "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트                
@@ -74,19 +74,16 @@ $(function(){
         ,minDate: "-2Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
         ,maxDate: "0D" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
         ,onClose: function(selectedDate) {
+            
+        },onSelect: function (date) {
             // 종료일(toDate) datepicker가 닫힐때
             // 시작일(fromDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정
+            var maxDate = $(this).datepicker('getDate');
             clearEnd = setTimeout(function() {
-                $("#datepicker_start").datepicker( "option", "maxDate", selectedDate );
-                $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
-                    // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치
-            }, 300);
-            if($('#datepicker_start').click()){
-                $("#datepicker_start").datepicker( "option", "maxDate", selectedDate );
+                $("#datepicker_start").datepicker( "option", "maxDate", maxDate );
                 $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
                 // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치
-                clearTimeout(clearEnd);
-            }
+            }, 300);
         }
     });
 
@@ -98,12 +95,20 @@ $(function(){
     // $('.ui-datepicker').css({ "margin-left" : "-30px", "margin-right": "auto"});  //달력(calendar) 위치
 
     $('.period_today').click(function(){
-        $('#datepicker_start').datepicker('setDate', 'today');
         $('#datepicker_end').datepicker('setDate', 'today');
+        if($('#datepicker_end').datepicker('setDate', 'today')){
+            let endToday=$('#datepicker_end').datepicker('getDate');
+            $("#datepicker_start").datepicker( "option", "maxDate", endToday);
+            $('#datepicker_start').datepicker('setDate', endToday);
+        }
     });
     $('.period_week').click(function(){
-        $('#datepicker_start').datepicker('setDate', '-1w');
         $('#datepicker_end').datepicker('setDate', 'today');
+        if($('#datepicker_end').datepicker('setDate', 'today')){
+            let endToday=$('#datepicker_end').datepicker('getDate');
+            $("#datepicker_start").datepicker( "option", "maxDate", endToday);
+            $('#datepicker_start').datepicker('setDate', '-1w');
+        }
     });
     $('.period_one_m').click(function(){
         $('#datepicker_start').datepicker('setDate', '-1m');
