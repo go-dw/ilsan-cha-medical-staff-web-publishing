@@ -1929,6 +1929,9 @@ table.table_list tbody {
 	margin-left: .3rem;
 	margin-right: 1.1em;
 }
+.dep_sel_his:first-child{
+	margin-left: 0;
+}
 .dep_sel.select{
     background-image: url(../images/ico_arrow_u.png);
 }
