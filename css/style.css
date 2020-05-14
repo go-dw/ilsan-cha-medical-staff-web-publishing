@@ -1788,11 +1788,15 @@ table.table_list tbody {
 .table span.td_name{
 	color: #13426b;
 }
-.table i.td_name{
-	color: #13426b;
+.table i{
 	vertical-align: initial;
 	font-style: normal;
 }
+.table i.td_name,
+.table i.td_sub {
+	color: #13426b;
+}
+
 
 
 
@@ -1893,6 +1897,9 @@ table.table_list tbody {
 	height: 1.5em;
 	padding-bottom: 1em;
 }
+.dep_wrap_sch{
+	width: 100%;
+}
 .dep_label{
 	display: table-cell;
 	vertical-align: middle;
@@ -1914,6 +1921,13 @@ table.table_list tbody {
 	appearance: none;
     background: url(../images/ico_arrow_d.png) no-repeat right center;
     background-size: 19% auto;
+}
+.dep_sel_sch{
+	float: left;
+}
+.dep_sel_sch:first-child{
+	margin-left: .3rem;
+	margin-right: 1.1em;
 }
 .dep_sel.select{
     background-image: url(../images/ico_arrow_u.png);
@@ -1995,11 +2009,6 @@ table.table_pat tbody{
 .table_history .column_wrap div span:first-child {
 	padding-left: 1em;
 }
-.table i.td_sub {
-    color: #13426b;
-    vertical-align: initial;
-    font-style: normal;
-}
 .table_history tbody tr:nth-child(2n) {
     background-color: #f3f3f3;
 }
@@ -2066,17 +2075,77 @@ table.table_pat tbody{
 	color:#00416b;
 	border: 2px solid #00416b;
 }
+.table_list tbody tr.row_line{
+	background-color: #f7f7f7;
+}
+table.table_sch tbody {
+    height: calc( 70vh - 3em - 3px );
+}
+.table_sch thead th{
+	height: 2.7em;
+}
+.table_sch thead .th_date{
+	font-size: 1.15em;
+}
+.table_sch thead th .ico_arrow_wrap{
+	width: 3em;
+	display: table-cell;
+}
+.table_sch thead th .ico_arrow_wrap a{
+	display: block;
+}
+.table_sch thead th .ico_arrow_wrap img{
+	width: 2.3em;
+}
 
-
-
-
-
-
-
-
-
-
-
+.table_sch .td_date{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	height: 2.5em;
+}
+.table_sch .td_sch{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+	padding-left: 1.07em;
+	height: 2.5em;
+}
+.table_sch .td_date .date_num{
+	width: 1.53em;
+	height: 1.53em;
+	border-radius: 50%;
+	display: block;
+	margin: 0 auto;
+	font-size: 1.05em;
+	background-color: #ffffff;
+	box-shadow: 0px 0.15em 0.05em 0 rgba(19, 66, 107, 0.13);
+}
+.table_sch .td_sch .sch_cont{
+	display: inline-block;
+	font-size: 1.05em;
+}
+span.date_week{
+	color: #113971;
+}
+span.date_holi{
+	color: #ed7523;
+}
+span.sch_am{
+	color: #01435d;
+}
+span.sch_pm{
+	color: #01435d;
+}
+span.sch_sur{
+	color: #61ab27;
+}
+.table .date_today .col_info{
+	background-color: #d5edff;
+}
+.table .date_today .col_cont{
+	background-color: #d9efff;
+}
 
 
 
