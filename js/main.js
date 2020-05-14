@@ -117,11 +117,12 @@ $(function(){
 
     const menuToggle = $('.menu_toggle_row'),
     closeToggle = $('.ico_close'),
-    mainSearch = $('.main_search'),
     searchToggle = $('.ico_search'),
     searchArea = $('.search_area'),
     btnCancel = $('.btn_cancel'),
-    selectToggle = $('.dep_sel')
+    selectToggle = $('.dep_sel'),
+    selectLabel = $('.dep_label')
+
 
     menuToggle.on('click', function(e){
         e.preventDefault();
@@ -186,6 +187,9 @@ $(function(){
     selectToggle.on('click', function(e){
         e.preventDefault();
         $(this).toggleClass('select');
+    });
+    selectLabel.on('click', function(e){
+        return false;
     });
 
     // const login_cta = $('.login_cta');
