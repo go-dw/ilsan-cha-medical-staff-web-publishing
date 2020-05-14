@@ -1,4 +1,5 @@
 $(function(){
+    /* datepicker 시작 */
     //시작일
     $('#datepicker_start').datepicker({
         dateFormat: 'yy-mm-dd' //Input Display Format 변경
@@ -114,43 +115,44 @@ $(function(){
         $('#datepicker_start').datepicker('setDate', '-3m');
         $('#datepicker_end').datepicker('setDate', 'today');
     });
+    /* datepicker 종료 */
 
     const menuToggle = $('.menu_toggle_row'),
     closeToggle = $('.ico_close'),
-    searchToggle = $('.ico_search'),
     searchArea = $('.search_area'),
     btnCancel = $('.btn_cancel'),
     selectToggle = $('.dep_sel'),
     selectLabel = $('.dep_label')
 
-
     menuToggle.on('click', function(e){
         e.preventDefault();
-        setTimeout(function(){
-            menuToggle.addClass('active');
-            $('.dim').show();
-        }, 100);
-        if(menuToggle.hasClass('active')){
-            if($(this).hasClass('menu_search')==false){
-                setTimeout(function(){
-                    searchArea.removeClass('select');
-                    menuToggle.removeClass('active');
-                    $('.dim').hide();
-                }, 100);
+        if($(this).hasClass('menu_search')==false){
+            setTimeout(function(){
+                menuToggle.addClass('active');
+                $('.dim').show();
+            }, 100);
+            if(menuToggle.hasClass('active')){
+                if($(this).hasClass('menu_search')==false){
+                    setTimeout(function(){
+                        searchArea.removeClass('select');
+                        menuToggle.removeClass('active');
+                        $('.dim').hide();
+                    }, 100);
+                };
+                if($(this).hasClass('menu_toggle_close')||$(this).hasClass('menu_search')){
+                    return;
+                }
+                menuToggle.removeClass('select');
+                $(this).addClass('select');
             };
-            if($(this).hasClass('menu_search')){
-                setTimeout(function(){
-                    searchArea.addClass('select');
-                    menuToggle.removeClass('active');
-                    $('.menu_toggle').css({"zIndex":"2700"})
-                    $('.dim').show();
-                }, 100);
-            };
-            if($(this).hasClass('menu_toggle_close')||$(this).hasClass('menu_search')){
-                return;
-            }
-            menuToggle.removeClass('select');
-            $(this).addClass('select');
+        }
+        if($(this).hasClass('menu_search')){
+            setTimeout(function(){
+                searchArea.addClass('select');
+                menuToggle.removeClass('active');
+                $('.menu_toggle').css({"zIndex":"2700"})
+                $('.dim').show();
+            }, 100);
         };
     });
     closeToggle.on('click', function(e){
@@ -184,14 +186,21 @@ $(function(){
             $('.dim').hide();
         }, 100);
     });
+
     selectToggle.on('click', function(e){
         e.preventDefault();
         $(this).toggleClass('select');
+    });
+    $('.cont').on('click', function(e){
+		if(selectToggle.hasClass('select')) {
+            selectToggle.toggleClass('select');
+		};
     });
     selectLabel.on('click', function(e){
         return false;
     });
 
+    /* 로그인 화면 팝업창 */
     // const login_cta = $('.login_cta');
     // const arr_popup = $('.arr_popup');
     // const arr_text = $('.arr_popup .arr_text');
