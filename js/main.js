@@ -1,6 +1,4 @@
 $(function(){
-    var clearEnd;
-    var clearStart;
     //시작일
     $('#datepicker_start').datepicker({
         dateFormat: 'yy-mm-dd' //Input Display Format 변경
@@ -30,12 +28,11 @@ $(function(){
         ,dayNamesMin: ['일', '월', '화', '수', '목', '금', '토']	// 한글 요일 표시 부분
         ,minDate: "-2Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
         ,maxDate: "0D" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
-        ,onClose: function(selectedDate) {
-
-        },onSelect: function (date) {
-            // 시작일(fromDate) datepicker가 닫힐때
-            // 종료일(toDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
-            var minDate = $(this).datepicker('getDate');
+        // ,onClose: function(selectedDate) {} datepicker가 닫힐 때
+        ,onSelect: function () {
+            // 시작일(fromDate) datepicker가 선택될 때
+            // 종료일(toDate)의 선택할 수 있는 최소 날짜(minDate)를 선택한 시작일로 지정
+            let minDate = $(this).datepicker('getDate');
             clearStart = setTimeout(function() {
                 $("#datepicker_end").datepicker( "option", "minDate", minDate );
                 $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
@@ -73,12 +70,11 @@ $(function(){
         ,dayNamesMin: ['일', '월', '화', '수', '목', '금', '토']	// 한글 요일 표시 부분
         ,minDate: "-2Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
         ,maxDate: "0D" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
-        ,onClose: function(selectedDate) {
-            
-        },onSelect: function (date) {
-            // 종료일(toDate) datepicker가 닫힐때
-            // 시작일(fromDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정
-            var maxDate = $(this).datepicker('getDate');
+        // ,onClose: function(selectedDate) {} datepicker가 닫힐 때
+        ,onSelect: function () {
+            // 종료일(toDate) datepicker가 선택될 때
+            // 시작일(fromDate)의 선택할 수 있는 최대 날짜(maxDate)를 선택한 종료일로 지정
+            let maxDate = $(this).datepicker('getDate');
             clearEnd = setTimeout(function() {
                 $("#datepicker_start").datepicker( "option", "maxDate", maxDate );
                 $('img.ui-datepicker-trigger').attr('align', 'absmiddle');
