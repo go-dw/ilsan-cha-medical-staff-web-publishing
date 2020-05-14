@@ -180,6 +180,19 @@ main {
 	z-index: 3000;
 	background-color: rgba(0, 0, 0, .5);
 }
+.dim_trans{
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 7000;
+	background-color: rgba(0, 0, 0, 0);
+}
+.dim_trans.show{
+	display: block;
+}
 .lnb {
 	float:left;
 	width:25%;
@@ -1919,7 +1932,8 @@ table.table_list tbody {
 	-moz-appearance: none;
 	appearance: none;
     background: url(../images/ico_arrow_d.png) no-repeat right center;
-    background-size: 19% auto;
+	background-size: 19% auto;
+	z-index: 3000;
 }
 .dep_sel_sch{
 	float: left;
@@ -1932,7 +1946,8 @@ table.table_list tbody {
 	margin-left: 0;
 }
 .dep_sel.select{
-    background-image: url(../images/ico_arrow_u.png);
+	background-image: url(../images/ico_arrow_u.png);
+	z-index: 7100;
 }
 .dep_sel::-ms-expand{
 	display: none;

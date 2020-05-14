@@ -189,12 +189,13 @@ $(function(){
 
     selectToggle.on('click', function(e){
         e.preventDefault();
-        $(this).toggleClass('select');
+        selectToggle.toggleClass('select');
+        $('.dim_trans').toggleClass('show');
     });
-    $('.cont').on('click', function(e){
-		if(selectToggle.hasClass('select')) {
-            selectToggle.toggleClass('select');
-		};
+    $('.dim_trans').on('click', function(e){
+        e.preventDefault();
+        selectToggle.toggleClass('select');
+        $('.dim_trans').toggleClass('show');
     });
     selectLabel.on('click', function(e){
         return false;
