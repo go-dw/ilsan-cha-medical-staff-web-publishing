@@ -2134,10 +2134,10 @@ table.table_sch tbody {
 	font-size: 1.05em;
 }
 span.date_week{
-	color: #113971;
+	color: #00416b;
 }
 span.date_holi{
-	color: #ed7523;
+	color: #ee7623;
 }
 /* span.sch_am{
 	color: #01435d;
@@ -2146,13 +2146,14 @@ span.date_holi{
 	color: #01435d;
 } */
 span.sch_sur{
-	color: #61ab27;
+	/* color: #61ab27; */
+	color: #5d83d5;
 }
 .table .date_today .col_info{
-	background-color: #d5edff;
+	background-color: #e9edff;
 }
 .table .date_today .col_cont{
-	background-color: #d9efff;
+	background-color: #f3f7ff;
 }
 .table .btn_pacs{
 	width: 100%;
