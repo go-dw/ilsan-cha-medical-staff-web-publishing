@@ -1942,7 +1942,7 @@ table.table_list tbody {
 	border: none;
 	margin-bottom: 1.5em;
 }
-.table_his{
+.table_pro{
 	border: none;
 	margin-bottom: 1em;
 }
@@ -1996,6 +1996,12 @@ table.table_pat tbody{
 }
 .table_history {
 	border: none;
+}
+.table_history tbody tr{
+	padding-top: .31em;
+}
+.table_history .column_wrap {
+	padding-bottom: .59em;
 }
 .table_history .column_wrap div {
 	text-align: left;
@@ -2131,12 +2137,12 @@ span.date_week{
 span.date_holi{
 	color: #ed7523;
 }
-span.sch_am{
+/* span.sch_am{
 	color: #01435d;
-}
-span.sch_pm{
+} */
+/* span.sch_pm{
 	color: #01435d;
-}
+} */
 span.sch_sur{
 	color: #61ab27;
 }
@@ -2146,7 +2152,31 @@ span.sch_sur{
 .table .date_today .col_cont{
 	background-color: #d9efff;
 }
-
+.table .btn_pacs{
+	width: 100%;
+	text-align: center;
+	display: table-cell;
+	vertical-align: top;
+}
+.table .btn_pacs .pacs_cta{
+	width: 63%;
+	height: 1.7em;
+	display: block;
+    border: 0;
+    border-radius: 3em;
+    outline: none;
+    background: #79a3dc;
+    font-size: 1.07em;
+    font-weight: 700;
+	color: #ffffff;
+	margin: 0 auto;
+}
+.table .btn_pacs .pacs_cta:hover,
+.table .btn_pacs .pacs_cta:active {
+	background:#ffffff;
+	color:#79a3dc;
+	border: 2px solid #79a3dc;
+}
 
 
 
@@ -2173,9 +2203,6 @@ span.sch_sur{
 	}
 	.login_popup .arr_yes{
 		height: 1.9em;
-	}
-	.table_list tbody td{
-		border-bottom: none;
 	}
 	.table_list tbody td{
 		border-bottom: none;

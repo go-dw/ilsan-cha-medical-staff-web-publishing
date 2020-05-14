@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>일산차 의료진용 APP</title>
+<link rel="shortcut icon" href="images/favicon_cha.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<!--[if lt IE 9]>
+    <script src="/js/html5shiv.js"></script>
+    <script src="/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script>
+
+</script>
+</head>
+<body>
+<div id="container" class="container-fuid">
+	<section class="content">
+		<main>
+			<div class="cont">
+				<div class="dim"></div>
+				<div class="cont_tit">
+					<div class="header_wrap">
+                        <div class="btn_back_wrap">
+                            <div class="btn_back" onclick="history.back();">
+                                <div class="ico_back"></div>
+                            </div>
+						</div>
+                        <div class="header" onclick="location.href='dashboard.html'">
+                            
+						</div>
+						<div class="menu_toggle">
+                            <div class="menu_toggle_row select">
+                                <div class="ico_toggle">외래</div>
+                            </div>
+                            <div class="menu_toggle_row">
+                                <div class="ico_toggle">입원</div>
+                            </div>
+                            <div class="menu_toggle_row">
+                                <div class="ico_toggle">응급</div>
+                            </div>
+                            <div class="menu_toggle_row">
+                                <div class="ico_toggle">수술</div>
+                            </div>
+                            <div class="menu_toggle_row">
+                                <div class="ico_toggle">시술</div>
+                            </div>
+                            <div class="menu_toggle_row menu_search">
+                                <div class="ico_toggle ico_search"></div>
+                            </div>
+                            <div class="menu_toggle_row menu_toggle_close">
+                                <div class="ico_toggle ico_close"></div>
+                            </div>
+						</div>
+					</div>
+				</div>
+				<div class="cont_table">
+					<div class="row no-gutters">
+						<div class="table-responsive-sm col-md-12 table_wrap">
+							<div class="thead_wrap">
+								<table class="table table_03">
+									<thead>
+										<tr class="row">
+											<th class="col title title_01">
+                                                <span class="name_list">처방조회</span>
+                                            </th>
+										</tr>
+									</thead>
+								</table>
+                            </div>
+							<table class="table table_02 table_02_s table_list table_pat table_pro">
+								<tbody>
+									<tr class="row row_line">
+										<td class="col-4 column column1 col_info">
+											<span>이름·환자번호</span>
+										</td>
+										<td class="col-8 column column2 col_cont">
+											<span><i class="td_name">강태공</i>·35753951</span>
+										</td>
+                                    </tr>
+                                    <tr class="row row_line">
+										<td class="col-4 column column1 col_info">
+											<span>성별·나이</span>
+										</td>
+										<td class="col-8 column column2 col_cont">
+											<span>M·35</span>
+										</td>
+                                    </tr>
+								</tbody>
+                            </table>
+                            <div class="thead_wrap">
+								<div class="dep_wrap">
+                                    <label for="sel_dep" class="dep_label">검사종류를 선택해주세요.</label>
+                                    <select name="department" id="sel_dep" class="dep_sel">
+                                        <option value="" selected="selected">검사종류</option>
+                                        <option value="순환기내과">진단검사</option>
+                                        <option value="진단검사의학과">영상검사</option>
+                                        <option value="병리과">기능검사</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="search_wrap">
+                                <div class="search_start">
+                                    <div class="search_txt">
+                                        <div class="search_txt_start">
+                                            시작일
+                                        </div>
+                                    </div>
+                                    <div class="search_num">
+                                        <input type="text" id="datepicker_start" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="search_end">
+                                    <div class="search_txt">
+                                        <div class="search_txt_end">
+                                            종료일
+                                        </div>
+                                    </div>
+                                    <div class="search_num">
+                                        <input type="text" id="datepicker_end" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="search_button">
+                                    <div class="ico_search">
+                                        <img src="images/search_icon.png" alt="search_icon">
+                                    </div>
+                                </div>
+                            </div>
+							<table class="table table_02 table_02_s table_list table_history">
+								<tbody>
+									<tr class="row" onclick="location.href='#'">
+										<td class="col-12 col-sm-6">
+											<div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span><i class="td_sub">처방일시 : </i>20-02-01 09:33</span>
+                                                    <span><i class="td_sub">판독의 : </i>김사부</span>
+												</div>
+											</div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">검사일시 : </i>20-03-01 13:33</span>
+                                                    <span><i class="td_sub">과 : </i>ENMD</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+                                                <div class="col-12 column">
+                                                    <span><i class="td_sub">검사명 : </i>ⓟ Thyroid Gland Sono(31)/N</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span><i class="td_sub">결과 : </i>2019-10-17 11:45 Thytoid Gland Sono(31)/NEMR 에러 TEST</span>
+                                                </div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span class="td_width_s"><i class="td_sub">단위 : </i>mg</span>
+													<span class="td_width_s"><i class="td_sub">+/- : </i>+</span>
+													<span class="td_width_s"><i class="td_sub">Max : </i>10mg</span>
+													<span class="td_width_s"><i class="td_sub">Min : </i>5mg</span>
+                                                </div>
+                                            </div>
+                                        </td>
+									</tr>
+									<tr class="row" onclick="location.href='#'">
+										<td class="col-12 col-sm-6">
+											<div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">처방일시 : </i>19-11-01 13:33</span>
+												</div>
+											</div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">검사일시 : </i>20-01-02 17:33</span>
+                                                    <span><i class="td_sub">과 : </i>IMMD</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+                                                <div class="col-12 column">
+                                                    <span><i class="td_sub">검사명 : </i>ⓟ Thyroid Gland Sono(50percenr)(29)/N</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span><i class="td_sub">결과 : </i>테스트판독입니다 Finding</span>
+                                                </div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span class="td_width_s"><i class="td_sub">단위 : </i>&nbsp;</span>
+													<span class="td_width_s"><i class="td_sub">+/- : </i>&nbsp;</span>
+													<span class="td_width_s"><i class="td_sub">Max : </i>&nbsp;</span>
+													<span class="td_width_s"><i class="td_sub">Min : </i>&nbsp;</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <div class="btn_pacs">
+                                                        <button type="button" class="pacs_cta" onclick="location.href='#'">PACS 조회</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+										</td>
+									</tr>
+									<tr class="row" onclick="location.href='#'">
+										<td class="col-12 col-sm-6">
+											<div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">처방일시 : </i>20-03-01 08:33</span>
+												</div>
+											</div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">검사일시 : </i>20-03-07 11:33</span>
+                                                    <span><i class="td_sub">과 : </i>IMMD</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+                                                <div class="col-12 column">
+                                                    <span><i class="td_sub">검사명 : </i>Abdomen Sono, General/N</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span><i class="td_sub">결과 : </i>2019-10-17 11:45 Thytoid Gland Sono(31)/NEMR 에러 TEST</span>
+                                                </div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span class="td_width_s"><i class="td_sub">단위 : </i>mg</span>
+													<span class="td_width_s"><i class="td_sub">+/- : </i>+</span>
+													<span class="td_width_s"><i class="td_sub">Max : </i>&nbsp;</span>
+													<span class="td_width_s"><i class="td_sub">Min : </i>5mg</span>
+                                                </div>
+                                            </div>
+                                        </td>
+									</tr>
+									<tr class="row" onclick="location.href='#'">
+										<td class="col-12 col-sm-6">
+											<div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">처방일시 : </i>20-02-21 08:33</span>
+												</div>
+											</div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">검사일시 : </i>20-03-11 09:53</span>
+                                                    <span><i class="td_sub">과 : </i>ENMD</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+                                                <div class="col-12 column">
+                                                    <span><i class="td_sub">검사명 : </i>ⓟ Thyroid Gland Sono(31)/N</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span><i class="td_sub">결과 : </i></span>
+                                                </div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span class="td_width_s"><i class="td_sub">단위 : </i>mg</span>
+													<span class="td_width_s"><i class="td_sub">+/- : </i>&nbsp;</span>
+													<span class="td_width_s"><i class="td_sub">Max : </i>&nbsp;</span>
+													<span class="td_width_s"><i class="td_sub">Min : </i>&nbsp;</span>
+                                                </div>
+                                            </div>
+                                        </td>
+									</tr>
+									<tr class="row" onclick="location.href='#'">
+										<td class="col-12 col-sm-6">
+											<div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">처방일시 : </i>20-02-01 08:33</span>
+												</div>
+											</div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">검사일시 : </i>20-03-01 10:33</span>
+                                                    <span><i class="td_sub">과 : </i>ENMD</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+                                                <div class="col-12 column">
+                                                    <span><i class="td_sub">검사명 : </i>ⓟ Thyroid Gland Sono(31)/N</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span><i class="td_sub">결과 : </i>2019-10-17 11:45 Thytoid Gland Sono(31)/NEMR 에러 TEST</span>
+                                                </div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span class="td_width_s"><i class="td_sub">단위 : </i>mg</span>
+													<span class="td_width_s"><i class="td_sub">+/- : </i>+</span>
+													<span class="td_width_s"><i class="td_sub">Max : </i>10mg</span>
+													<span class="td_width_s"><i class="td_sub">Min : </i>5mg</span>
+                                                </div>
+                                            </div>
+                                        </td>
+									</tr>
+									<tr class="row" onclick="location.href='#'">
+										<td class="col-12 col-sm-6">
+											<div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">처방일시 : </i>20-02-01 08:33</span>
+												</div>
+											</div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+													<span><i class="td_sub">검사일시 : </i>20-03-01 17:33</span>
+                                                    <span><i class="td_sub">과 : </i>ENMD</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+                                                <div class="col-12 column">
+                                                    <span><i class="td_sub">검사명 : </i>Breast Sono Guided Asp(30)/N</span>
+												</div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span><i class="td_sub">결과 : </i>2019-10-17 11:45 Thytoid Gland Sono(31)/NEMR 에러 TEST</span>
+                                                </div>
+                                            </div>
+										</td>
+										<td class="w-100"></td>
+                                        <td class="col-12 col-sm-6">
+                                            <div class="row align-items-center column_wrap">
+												<div class="col-12 column">
+                                                    <span class="td_width_s"><i class="td_sub">단위 : </i>mg</span>
+													<span class="td_width_s"><i class="td_sub">+/- : </i>+</span>
+													<span class="td_width_s"><i class="td_sub">Max : </i>10mg</span>
+													<span class="td_width_s"><i class="td_sub">Min : </i>5mg</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+								</tbody>
+                            </table>
+						</div>
+					</div>
+                </div>
+            </div>
+            <div class="search_area">
+                <div class="search_form">
+                    <div class="popup_title">
+                        <div class="tit_popup_wrap">
+                            <div class="tit_popup">
+                                <div class="tit_txt">
+                                    정보 검색
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive-sm col-md-12 table_wrap">
+                        <div class="thead_wrap">
+                            <div class="dep_wrap sort_wrap">
+                                <select name="department" id="sel_dep" class="dep_sel">
+                                    <option value="" selected="selected">환자명</option>
+                                    <option value="환자번호">환자번호</option>
+                                </select>
+                            </div>
+                            <div class="search_input">
+                                <input type="search" id="search" class="search" placeholder="Search..." />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thead_wrap thead_wrap_btn">
+                        <div class="btn_popup_wrap btn_left btn_cancel">
+                            <div class="btn_popup">
+                                <div class="btn_txt cancel_txt">
+                                    취소
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn_popup_wrap btn_right btn_search">
+                            <div class="btn_popup">
+                                <div class="btn_txt search_txt">
+                                    검색
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</main>
+	</section>
+</div>
+</body>
+</html>
