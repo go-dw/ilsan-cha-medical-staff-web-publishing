@@ -23,8 +23,11 @@ main {
 /* login */
 #main {
 	height:100vh;
+	width: 100%;
+	max-width: 723px;
 	background:url('../images/bg_signin.png') center no-repeat;
 	background-size:cover;
+	margin: 0 auto;
 }
 #splash {
 	height:100vh;
@@ -733,6 +736,7 @@ table.table_02 tbody tr:hover{
 }
 .column_wrap div{
 	display: table;
+	table-layout: fixed;
 	text-align: center;
 	padding: 0;
 	color: #2a2c2f;
@@ -1537,7 +1541,7 @@ div.col_none{
 .header .header_logo_wrap .img_logo{
 	display: inline-block;
 	width: 50%;
-	padding-right: 1.5em;
+	padding-right: 1.3em;
 	max-height: 3em;
 	object-fit:contain;
 }
@@ -1996,6 +2000,9 @@ table.table_pat tbody{
 .table tbody .row_line{
 	border-bottom: 1px solid #e5e5e5;
 }
+.table tbody .column_wrap{
+	border-bottom: none;
+}
 .table tbody .col_info{
 	background-color: #f7f7f7;
 	border-bottom: none;
@@ -2257,6 +2264,9 @@ span.sch_sur{
 	}
 	.header .header_logo_wrap .img_logo{
 		width: 70%;
+	}
+	.table tbody .column_wrap{
+		border-bottom: 1px solid #e5e5e5;
 	}
 }
 @media (max-width: 350px) {
