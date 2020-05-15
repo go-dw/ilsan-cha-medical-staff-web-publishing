@@ -339,9 +339,9 @@ section::-webkit-scrollbar,div::-webkit-scrollbar,nav::-webkit-scrollbar,table::
     display: none; /* Chrome, Safari, Opera*/
 }
 .table_wrap{
-	height: 87vh;
-	overflow-y: hidden;
-	overflow-x: hidden;
+	/* height: 87vh; */
+	/* overflow-y: hidden; */
+	/* overflow-x: hidden; */
 }
 .table{
 	border:solid 1px #e5e5e5;
@@ -404,11 +404,9 @@ table.table_cur tbody{
 .table_01 thead tr{
 	border-bottom: 1px solid #e5e5e5;
 }
-table.table_01 tbody tr:hover,table.table_02 tbody tr:hover{
+table.table_01 tbody tr:hover,
+table.table_02 tbody tr:hover{
 	background-color: #e8fcfb;
-}
-.table_02 thead .column:hover{
-	background-color: #13426b;
 }
 .table_02 thead .column:hover{
 	background-color: #13426b;
@@ -1506,6 +1504,7 @@ div.col_none{
 	background-size: 50% auto;
 	display: table;
 	text-align: center;
+	position: relative;
 }
 .btn_back_wrap{
 	display: table-cell;
@@ -1787,6 +1786,15 @@ div.col_none{
 	border: none;
 }
 .table_list thead{
+	background-color: #79a3dc;
+}
+.table_sch thead .column:hover{
+	background-color: #79a3dc;
+}
+.table_sch thead .column:hover{
+	background-color: #79a3dc;
+}
+.table_list thead .column_blank:hover{
 	background-color: #79a3dc;
 }
 .table thead th span {
@@ -2081,6 +2089,7 @@ table.table_pat tbody{
 }
 .btn_logout{
 	width: 100%;
+	max-width: 768px;
 	text-align: center;
 	position: fixed;
 	bottom: 3.3em;

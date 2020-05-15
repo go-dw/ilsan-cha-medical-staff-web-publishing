@@ -112,5 +112,7 @@ select::-ms-expand {display:none;}
 	src: url('../font/NotoSansKR-Bold.eot?#iefix') format('embedded-opentype'), 
 	url('../font/NotoSansKR-Bold.woff') format('woff'),
 }
+.out{position:absolute;display:block;width:0;height:0;line-height:0;text-indent:-9999px;overflow:hidden}
+.blind{position: absolute;overflow: hidden;width: 1px;height: 1px;display: inline-block;clip: rect(0,0,0,0)}
 .clear::before{content:'';display:block}
 .clear::after{content:'';display:block;clear:both}
