@@ -746,6 +746,7 @@ table.table_02 tbody tr:hover{
 	text-align: center;
 	display: table-cell;
 	vertical-align: middle;
+	word-break: break-all;
 }
 .popup_ins{
 	position: relative;
@@ -2267,6 +2268,9 @@ span.sch_sur{
 	}
 	.table tbody .column_wrap{
 		border-bottom: 1px solid #e5e5e5;
+	}
+	.table_history tbody .column_wrap{
+		border-bottom: none;
 	}
 }
 @media (max-width: 350px) {
