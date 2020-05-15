@@ -1588,7 +1588,7 @@ div.col_none{
 }
 .search_area{
 	position: fixed;
-	z-index: 13000;
+	z-index: 5700;
 	left: 50%;
 	top: 50%;
 	-webkit-transform: translate(-50%,-50%);
@@ -1630,7 +1630,8 @@ div.col_none{
 	display: table-cell;
 	vertical-align: middle;
 	color: #323232;
-	font-size: 1.6em;
+	font-size: 1.5em;
+	font-weight: 700;
 }
 .search_area .search_form .table_wrap{
 	margin-bottom: 0;
