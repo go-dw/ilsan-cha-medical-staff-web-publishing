@@ -1456,7 +1456,7 @@ div.col_none{
 		padding: .7em;
 	}
 	.cont .cont_tit{
-		padding: .7em 0;
+		padding: .7em 0 .5em;
 	}
 	.cont .tit_txt{
 		font-size: 1.37em;
@@ -1500,6 +1500,7 @@ div.col_none{
 	    font-size: 1.5em;
 	}
 }
+
 .header_wrap{
 	width: 100%;
 	height: 3em;
@@ -1759,17 +1760,20 @@ div.col_none{
 .btn_menu_ico_wrap{
 	display: inline-block;
 	width: 3em;
-	height: 3em;
+	padding-bottom: .03em;
 }
 .btn_sub_ico_wrap{
-	width: 2.7em;
+	width: 2.5em;
 	height: 2.7em;
 }
 .btn_menu_ico{
 	display: inline-block;
-	width: 3em;
+	width: 2.5em;
 	max-width: 100%;
 	max-height: 100%;
+}
+.btn_sub_ico{
+	height: 3.1em;
 }
 .txt_main_l{
 	display: block;
@@ -2039,7 +2043,7 @@ table.table_pat tbody{
 	display: table-cell;
 	vertical-align: middle;
 	word-break: keep-all;
-	height: 3em;
+	height: 2.3em;
 	line-height: 1.3em;
 	color: #13426b;
 }
@@ -2275,7 +2279,11 @@ span.sch_sur{
 }
 @media (max-width: 350px) {
 	.btn_menu_ico{
-		width: 2.77em;
+		width: 2.1em;
+	}
+	.btn_sub_ico_wrap{
+		width: 2.3em;
+		height: 2.3em;
 	}
 	.txt_main_l{
 		font-size: 1.5em;
