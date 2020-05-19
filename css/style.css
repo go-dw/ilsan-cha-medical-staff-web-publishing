@@ -410,7 +410,7 @@ table.table_cur tbody{
 }
 table.table_01 tbody tr:hover,
 table.table_02 tbody tr:hover{
-	background-color: #f3fbff;
+	background-color: #f7fdfd;
 }
 .table_02 thead .column:hover{
 	background-color: #13426b;
@@ -1730,8 +1730,8 @@ div.col_none{
 }
 .btn_menu:hover,
 .btn_menu:focus{
-	background-color: #f3fbff;
-	box-shadow: 0px .1em .33em 0 rgba(0, 0, 0, 0.09) inset;
+	background-color: #fbfdff;
+	box-shadow: 0px .1em .33em 0 rgba(0, 0, 0, 0.07) inset;
 }
 .main_row{
 	height: calc(27% - 1em);
