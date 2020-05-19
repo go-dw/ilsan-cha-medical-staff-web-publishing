@@ -410,7 +410,7 @@ table.table_cur tbody{
 }
 table.table_01 tbody tr:hover,
 table.table_02 tbody tr:hover{
-	background-color: #e8fcfb;
+	background-color: #f3fbff;
 }
 .table_02 thead .column:hover{
 	background-color: #13426b;
@@ -1726,6 +1726,12 @@ div.col_none{
 }
 .btn_menu{
 	cursor: pointer;
+	box-shadow: 0px .3em 1em 0 rgba(0, 0, 0, 0.12);
+}
+.btn_menu:hover,
+.btn_menu:focus{
+	background-color: #f3fbff;
+	box-shadow: 0px .1em .33em 0 rgba(0, 0, 0, 0.09) inset;
 }
 .main_row{
 	height: calc(27% - 1em);
@@ -1743,7 +1749,6 @@ div.col_none{
 	height: 100%;
 	margin: 0 .5em;
 	border-radius:1.3em;
-	box-shadow: 0px .3em 1em 0 rgba(0, 0, 0, 0.12);
 }
 .sub_row .btn_sub{
 	display: table;
@@ -1751,7 +1756,6 @@ div.col_none{
 	height: 100%;
 	margin: 0 .5em;
 	border-radius:1.3em;
-	box-shadow: 0px .3em 1em 0 rgba(0, 0, 0, 0.12);
 }
 .btn_txt_wrap{
 	display: table-cell;
