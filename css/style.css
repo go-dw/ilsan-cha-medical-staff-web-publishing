@@ -24,7 +24,7 @@ main {
 #main {
 	height:100vh;
 	width: 100%;
-	max-width: 723px;
+	max-width: 768px;
 	background:url('../images/bg_signin.png') center no-repeat;
 	background-size:cover;
 	margin: 0 auto;
@@ -583,9 +583,6 @@ table.table_02 tbody tr:hover{
 	font-weight: 400;
 	word-break: keep-all;
 	white-space: nowrap;
-}
-.table_03 thead .row .sub_wrap{
-	text-align: right;
 }
 .table_03 thead .row .status{
 	font-size: 1.3em;
@@ -1590,13 +1587,21 @@ div.col_none{
 	font-weight: 700;
 	cursor: pointer;
 }
-.ico_close{
-	background: url(../images/close_icon_02.png) center no-repeat;
-	background-size: 53% auto;
+.menu_ham .ico_menu{
+	background: url(../images/menu_icon.png) center no-repeat;
+	background-size: 73% auto;
 }
+.menu_ham.active .ico_menu{
+	background: url(../images/cancel_icon.png) center no-repeat;
+	background-size: 71% auto;
+}
+/* .ico_close{
+	background: url(../images/cancel_icon.png) center no-repeat;
+	background-size: 75% auto;
+} */
 .menu_search .ico_search{
 	background: url(../images/search_icon.png) center no-repeat;
-	background-size: 83% auto;
+	background-size: 81% auto;
 }
 .menu_search.active .ico_search{
 	background-image: url(../images/search_icon_w.png);
@@ -1724,14 +1729,8 @@ div.col_none{
 	width: 100%;
 	height: 87vh
 }
-.btn_menu{
-	cursor: pointer;
-	box-shadow: 0px .3em 1em 0 rgba(0, 0, 0, 0.12);
-}
-.btn_menu:hover,
-.btn_menu:focus{
-	background-color: #fbfdff;
-	box-shadow: 0px .1em .33em 0 rgba(0, 0, 0, 0.07) inset;
+.menu_wrap.sub_wrap{
+	height: 50vh;
 }
 .main_row{
 	height: calc(27% - 1em);
@@ -1743,12 +1742,16 @@ div.col_none{
 	margin: 1em;
 	text-align: center;
 }
+.stats_row{
+	height: calc(47% - 1em);
+}
 .main_row .btn_main{
 	display: table;
 	width: calc( 50% - 1em );
 	height: 100%;
 	margin: 0 .5em;
 	border-radius:1.3em;
+	background: #79a3dc;
 }
 .sub_row .btn_sub{
 	display: table;
@@ -1756,6 +1759,19 @@ div.col_none{
 	height: 100%;
 	margin: 0 .5em;
 	border-radius:1.3em;
+	background: #79a3dc;
+}
+.btn_menu{
+	cursor: pointer;
+	/* box-shadow: 0px .3em 1em 0 ; */
+	box-shadow:  0 .1em .1em .1em rgba(103, 139, 187, 0.15),
+				0 -.1em .1em .1em rgba(139, 187, 253, 0.07);
+}
+.btn_menu:hover,
+.btn_menu:focus{
+	background-color: #83b3fd;
+	box-shadow: inset 0 .1em .1em .1em rgba(103, 139, 187, 0.3),
+				inset 0 -.1em .1em .1em rgba(139, 187, 253, 0.15);
 }
 .btn_txt_wrap{
 	display: table-cell;
@@ -1783,7 +1799,7 @@ div.col_none{
 	display: block;
 	padding-top: .1em;
 	font-size: 1.7em;
-	color: #13426b;
+	color: #ffffff;
 }
 .txt_sub_l{
 	padding-top: .3em;
@@ -1795,13 +1811,15 @@ div.col_none{
 }
 .txt_main_s .txt_patient{
 	display: inline-block;
+	color: #ffffff;
 }
 .txt_main_s .txt_patient .txt_patient_num{
 	display: inline-block;
 	margin-bottom: .39em;
 	padding: .1em;
 	font-size: 1.5em;
-	color: #6b83cf;
+	/* color: #6b83cf; */
+	color: #ffffff;
 }
 .table thead{
 	background-color: #ffffff;
@@ -2049,7 +2067,8 @@ table.table_pat tbody{
 	word-break: keep-all;
 	height: 2.3em;
 	line-height: 1.3em;
-	color: #13426b;
+	/* color: #13426b; */
+	color: #ffffff;
 }
 .table_history {
 	border: none;

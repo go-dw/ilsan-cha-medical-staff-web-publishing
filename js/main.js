@@ -143,7 +143,7 @@ $(function(){
                     return;
                 }
                 menuToggle.removeClass('select');
-                $(this).addClass('select');
+                $('.menu_ham').addClass('select');
             };
         }
         if($(this).hasClass('menu_search')){
