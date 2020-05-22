@@ -1863,7 +1863,9 @@ table.table_list tbody {
 .table i.td_sub {
 	color: #13426b;
 }
-
+.table span.td_sum {
+    color: #13426b;
+}
 
 
 
